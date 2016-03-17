@@ -1,3 +1,5 @@
+require("jasmine-immutablejs-matchers");
+
 //Override global 'firebase' with 'MockFirebase'
 MockFirebase.override();
 

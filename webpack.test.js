@@ -3,7 +3,6 @@ const webpack = require('webpack');
 
 // plugins
 const DefinePlugin = webpack.DefinePlugin;
-const NpmInstallPlugin = require('npm-install-webpack-plugin');
 
 module.exports = {
 	devtool: 'inline-source-map',
@@ -11,6 +10,7 @@ module.exports = {
 	module: {
 		preLoaders: [{
 			test: /\.js$/,
+			exclude: /node_modules/,
 			loaders: ['isparta-instrumenter']
 		}],
 		loaders: [{
@@ -24,15 +24,15 @@ module.exports = {
 	},
 
 	resolve: {
+		alias: {
+			test: path.resolve('./test')
+		},
 		root: path.resolve('./src')
 	},
 
 	plugins: [
 		new DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify('test')
-		}),
-		new NpmInstallPlugin({
-			save: true
 		})
 	]
 };
