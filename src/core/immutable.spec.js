@@ -3,17 +3,17 @@ import { addDataToFirebase } from 'test/utils';
 
 describe('Immutable Operations', () => {
 	describe('jasmine-immutablejs-matchers', () => {
-		it("should confirm Immutability", function() {
+		it('should confirm Immutability', function() {
 			var data = Map({ 'a': 1, 'b': 2 });
 			expect(data).toBeImmutable();
 		});
 
-		it("should confirm equality/inequality", () => {
+		it('should confirm equality/inequality', () => {
 			var data = Map({ 'a': 1, 'b': 2 });
 			expect(data).toEqualImmutable(data);
 
 			var obj = { 'a': 1, 'b': 2 };
-			var data = Map(obj);
+			data = Map(obj);
 			expect(data).not.toEqualImmutable(obj);
 		});
 	});

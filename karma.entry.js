@@ -1,6 +1,6 @@
-require("jasmine-immutablejs-matchers");
+require('jasmine-immutablejs-matchers');
 
-//Override global 'firebase' with 'MockFirebase'
+// Override global 'firebase' with 'MockFirebase'
 MockFirebase.override();
 
 var context = require.context('./src', true, /\.spec\.js$/);

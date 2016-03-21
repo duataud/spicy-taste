@@ -25,7 +25,7 @@ module.exports = (config) => {
 		autoWatch: true,
 
 		coverageReporter: {
-			dir: 'test/coverage/',
+			dir: 'target/coverage/',
 			type: 'html'
 		},
 
