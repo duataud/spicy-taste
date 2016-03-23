@@ -2,10 +2,12 @@ import { routerReducer, LOCATION_CHANGE } from 'react-router-redux';
 import { Map } from 'immutable';
 
 // Reducers
+import { homeReducer } from './home/reducer';
 
 const reducers = (state = Map(), action) => {
 	return Map({
-		firebase: state.get('firebase')
+		firebase: state.get('firebase'),
+		home: homeReducer(state.get('home'), action)
 	});
 };
 

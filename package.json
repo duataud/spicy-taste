@@ -8,8 +8,8 @@
     "clean": "rm -rf ./target",
     "lint": "eslint -c .eslintrc ./src",
     "start": "webpack-dev-server --config webpack.dev.js",
-    "test": "karma start --single-run",
-    "tdd": "karma start --auto-watch --no-single-run"
+    "test": "karma start --single-run --reporters spec,coverage",
+    "test.watch": "karma start --auto-watch --no-single-run --reporters spec"
   },
   "repository": {
     "type": "git",

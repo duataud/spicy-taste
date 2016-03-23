@@ -9,7 +9,7 @@ import { recordFromSnapshot, consoleError } from '../utils';
 
 export const createRecipe = (recipe) => {
 	return (dispatch, getState) => {
-		const { firebase } = getState();
+		const firebase = getState().get('firebase');
 
 		firebase.child('recipes').push(recipe, error => {
 			if (error) {
@@ -25,7 +25,7 @@ export const createRecipe = (recipe) => {
 
 export const updateRecipe = (key, updatedRecipe) => {
 	return (dispatch, getState) => {
-		const { firebase } = getState();
+		const firebase = getState().get('firebase');
 
 		firebase.child(`recipes/${key}`).update(updatedRecipe, error => {
 			if (error) {
@@ -39,9 +39,10 @@ export const updateRecipe = (key, updatedRecipe) => {
 	};
 };
 
+
 export const registerReadListener = () => {
 	return (dispatch, getState) => {
-		const { firebase } = getState();
+		const firebase = getState().get('firebase');
 		const ref = firebase.child('recipes');
 
 		ref.on('child_added', snapshot => dispatch({
@@ -53,7 +54,7 @@ export const registerReadListener = () => {
 
 export const registerUpdateListener = () => {
 	return (dispatch, getState) => {
-		const { firebase } = getState();
+		const firebase = getState().get('firebase');
 		const ref = firebase.child('recipes');
 
 		ref.on('child_changed', snapshot => dispatch({

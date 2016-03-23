@@ -18,8 +18,6 @@ module.exports = (config) => {
 			noInfo: true
 		},
 
-		reporters: ['spec', 'coverage'],
-
 		singleRun: false,
 
 		autoWatch: true,

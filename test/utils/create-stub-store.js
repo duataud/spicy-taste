@@ -7,10 +7,10 @@ const createStubStore = (state, middleware) => {
 			getState() {
 				return typeof state === 'function' ? state() : state;
 			}
-		}
+		};
 	}
 
 	return applyMiddleware(...middleware)(store)();
-}
+};
 
-export { createStubStore }
+export { createStubStore };

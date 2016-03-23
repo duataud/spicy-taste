@@ -26,10 +26,10 @@ describe('Recipes Actions', () => {
 
 			const firebase = new MockFirebase();
 
-			const store = createMockStore({
+			const store = createMockStore(fromJS({
 				firebase: firebase,
 				recipes: fromJS([])
-			}, expectedActions, [thunk], done);
+			}), expectedActions, [thunk], done);
 
 			store.dispatch(registerReadListener());
 			store.dispatch(createRecipe(sampleRecipe));
@@ -37,4 +37,6 @@ describe('Recipes Actions', () => {
 			firebase.flush();
 		});
 	});
+
+
 });

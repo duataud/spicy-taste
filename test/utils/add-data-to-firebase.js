@@ -10,8 +10,7 @@ const addDataToFirebase = (data, firebase, path) => {
 
 	ref.push(data);
 	firebase.flush();
-
 	return record;
 };
 
-export { addDataToFirebase }
+export { addDataToFirebase };

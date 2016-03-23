@@ -24,7 +24,6 @@ describe('Immutable Operations', () => {
 		it('should convert object from firebase to map by fromJS', () => {
 			const firebase = new MockFirebase();
 			const record = addDataToFirebase(item, firebase);
-
 			expect(fromJS(record)).toEqualImmutable(Map({...item, key: record.key }));
 		});
 
