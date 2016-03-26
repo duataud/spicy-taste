@@ -23,7 +23,7 @@ const loadSuccess = (snapshot) => {
 const loadError = (error) => {
 	return {
 		type: LOAD_TOP_RECIPES_ERROR,
-		error: error
+		payload: error
 	};
 };
 
