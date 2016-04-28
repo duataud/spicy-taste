@@ -1,10 +1,10 @@
-import thunk from 'redux-thunk';
-import { fromJS } from 'immutable';
-import _ from 'lodash';
-import { createMockStore } from 'test/utils';
+// import thunk from 'redux-thunk';
+// import { fromJS } from 'immutable';
+// import _ from 'lodash';
+// import { createMockStore } from 'test/utils';
 
-import { LOAD_TOP_RECIPES_SUCCESS } from './action-types';
-import { loadTopRecipes } from './actions';
+// import { LOAD_TOP_RECIPES_SUCCESS } from './action-types';
+// import { loadTopRecipes } from './actions';
 
 /**
  * Mockfirebase doesn't support limitToLast() query

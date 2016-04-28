@@ -15,8 +15,8 @@ const signInSuccess = (authData) => {
 const saveNewUser = (authData) => {
 	return (dispatch, getState) =>{
 		const firebase = getState().get('firebase');
-		const userRef = firebase.child('users/' + authData.uid);
-		userRef.once('value', (snapshot) => {
+		const userRef = firebase.child(`users/${authData.uid}`);
+		return userRef.once('value').then((snapshot) => {
 			if (!snapshot.exists()) {
 				userRef.set(getUserInfo(authData));
 			}
@@ -24,8 +24,11 @@ const saveNewUser = (authData) => {
 	};
 };
 
-const getUserInfo = (authData) =>{
-	let userInfo = {provider: authData.provider};
+export const getUserInfo = (authData) =>{
+	let userInfo = {
+		uid: authData.uid
+	};
+
 	switch (authData.provider) {
 		case 'password':
 			userInfo.name = authData.password.email.replace(/@.*/, '');

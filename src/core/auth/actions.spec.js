@@ -61,11 +61,16 @@ describe('Auth Actions', () => {
 		});
 
 		it('should create SIGN_IN_SUCCESS', (done) => {
-			const authData = {
-				uid: '123'
-			};
 			const email = 'test@gmail.com';
 			const password = 'password';
+			const authData = {
+				uid: '123',
+				provider: 'password',
+				password: {
+					email: email,
+					profileImageURL: 'http://image'
+				}
+			};
 			const firebase = new MockFirebase();
 			const expectedActions = [(action) => {
 				return action.type === SIGN_IN_SUCCESS &&
@@ -77,7 +82,7 @@ describe('Auth Actions', () => {
 			let p2 = sinon.stub(firebase, 'authWithPassword').returnsPromise();
 
 			p1.resolves();
-			p2.resolves();
+			p2.resolves(authData);
 
 			const store = createMockStore(fromJS({ firebase }), expectedActions, [thunk], done);
 
